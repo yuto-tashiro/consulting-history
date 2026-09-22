@@ -13,16 +13,11 @@ test('chapter navigation, filters and accessible source links',async({page})=>{
  await expect(page.locator('.sources a')).toHaveAttribute('href','https://plato.stanford.edu/entries/socrates/');
  expect(errors).toEqual([]);
 });
-test('notes remain separate, persist on reload, and can be exported',async({page})=>{
+test('future questions are readable without data entry or download controls',async({page})=>{
  await page.goto(base+'/#future');
- await page.locator('#reflection').fill('判断と現場への実装に時間を使いたい。');
- await page.locator('[data-question="1"]').click();
- await expect(page.locator('#reflection')).toHaveValue('');
- await page.locator('#reflection').fill('若手が仮説を検証できる場をつくる。');
- await page.reload();await expect(page.locator('#reflection')).toHaveValue('判断と現場への実装に時間を使いたい。');
- await page.locator('[data-question="1"]').click();await expect(page.locator('#reflection')).toHaveValue('若手が仮説を検証できる場をつくる。');
- const download=page.waitForEvent('download');await page.locator('#download-note').click();
- expect((await download).suggestedFilename()).toBe('consulting-history-notes.md');
+ await expect(page.locator('.future-questions article')).toHaveCount(3);
+ await expect(page.getByText('何に価値が残るのだろう。')).toBeVisible();
+ await expect(page.locator('#reflection, #download-note, textarea')).toHaveCount(0);
 });
 test('all articles load and unknown URLs return 404',async({request})=>{
  for(const slug of ['dialogue','measurement','profession','strategy','japan','implementation','knowledge','ai']){const response=await request.get(base+'/chapters/'+slug+'/');expect(response.status()).toBe(200);expect(await response.text()).toContain('この章の参考文献');}
