@@ -10,6 +10,7 @@ test('chapter navigation, filters and accessible source links',async({page})=>{
  await page.locator('.chapter-card').first().click();
  await expect(page).toHaveURL(/chapters\/dialogue/);
  await expect(page.locator('h1')).toContainText('問いを立てる');
+ await expect(page.getByText('自分の考えを書き留める')).toHaveCount(0);
  await expect(page.locator('.sources a')).toHaveAttribute('href','https://plato.stanford.edu/entries/socrates/');
  expect(errors).toEqual([]);
 });
