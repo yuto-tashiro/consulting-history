@@ -4,5 +4,11 @@
   "account_id": "1b7501794d4009b3fbb8f3de1be99d41",
   "compatibility_date": "2026-09-22",
   "workers_dev": true,
+  "routes": [
+    {
+      "pattern": "consulting.history.hiluco.net",
+      "custom_domain": true
+    }
+  ],
   "assets": { "directory": "./dist", "not_found_handling": "404-page" }
 }

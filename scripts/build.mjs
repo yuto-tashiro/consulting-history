@@ -1,6 +1,6 @@
 import {mkdir,writeFile,cp,rm} from 'node:fs/promises';
 import {chapters,sources} from '../content/history.mjs';
-const origin='https://consulting-history.hiluco.workers.dev';
+const origin='https://consulting.history.hiluco.net';
 const e=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
 const num=i=>String(i+1).padStart(2,'0');
 const sourceList=ids=>`<ul class="sources">${sources.filter(s=>!ids||ids.includes(s[0])).map(s=>`<li id="source-${s[0]}"><span class="eyebrow">${s[1]}</span><a href="${s[4]}" target="_blank" rel="noopener noreferrer">${s[3]} <span aria-hidden="true">↗</span></a><small>${s[2]}</small></li>`).join('')}</ul>`;
