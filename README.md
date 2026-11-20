@@ -2,7 +2,8 @@
 
 歴史を俯瞰し、これからの「考える仕事」を考える日本語の学習サイト。
 
-公開URL: https://consulting-history.hiluco.workers.dev
+公開URL: https://consulting-history.hiluco.jp
+旧開発URL: https://consulting-history.hiluco.workers.dev
 運営: 株式会社HILUCO
 
 ## サイト

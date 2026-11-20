@@ -6,7 +6,7 @@
   "workers_dev": true,
   "routes": [
     {
-      "pattern": "consulting.history.hiluco.net",
+      "pattern": "consulting-history.hiluco.jp",
       "custom_domain": true
     }
   ],
